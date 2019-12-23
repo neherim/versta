@@ -1,0 +1,23 @@
+### Haskell
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+*.prof
+*.aux
+*.hp
+*.eventlog
+# Stack
+.stack-work/
+stack.yaml.lock
+
+### IDE/support
+TAGS
+
+# Frontend
+frontend/node_modules
+
+# other
+.DS_Store

@@ -1,0 +1,60 @@
+name:                versta
+version:             0.1.0.0
+github:              "githubuser/versta"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/versta-dashboard#readme>
+
+dependencies:
+  - base
+  - mtl
+  - extra
+  - exceptions
+  - bytestring
+  - servant
+  - servant-server
+  - aeson
+  - wai
+  - warp
+  - text
+  - uuid
+  - yaml
+  - swagger2
+  - http-client
+  - http-conduit
+  - lens
+  - unordered-containers
+  - async
+
+library:
+  source-dirs: src
+
+executables:
+  versta-dashboard-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - versta
+
+tests:
+  versta-dashboard-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - versta
+    - hspec
+    - QuickCheck
