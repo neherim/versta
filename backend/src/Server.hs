@@ -1,7 +1,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeOperators #-}
 {-# LANGUAGE OverloadedStrings #-}
-
+{-# LANGUAGE FlexibleContexts #-}
 module Server where
 
 import App
@@ -10,6 +10,7 @@ import Data.Text
 import Servant
 import Control.Monad.IO.Class (liftIO)
 import Control.Monad.Reader
+import Control.Monad.Logger
 
 type ServiceApi = "services" :> Get '[JSON] Schema
              :<|> "services" :> Capture "serviceName" Text :> Get '[JSON] ServiceSchema
@@ -29,12 +30,13 @@ serviceApi = Proxy
 application :: AppContext -> Application
 application ctx = serve serviceApi $ hoistServer serviceApi nt server
   where
-    nt app = runReaderT (runAppM app) ctx
+    nt app = runStdoutLoggingT $ runReaderT  (runAppM app) ctx
 
 
 -- HTTP API Handlers
-apiGetSchema :: AppM Schema
-apiGetSchema = liftIO emptySchema
+apiGetSchema :: (MonadIO m, HasSchema m) => m Schema
+apiGetSchema = do
+  liftIO emptySchema
 
-apiGetServiceInfo :: Text -> AppM ServiceSchema
+apiGetServiceInfo :: (MonadIO m) => Text -> m ServiceSchema
 apiGetServiceInfo _ = return $ ServiceSchema "scrooge-person" (Just "Some descriprion")

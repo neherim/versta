@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c87db96a84379b868315b3e78b4dd2d88a7b70428dc5f39ba8526d85f88cc511
+-- hash: 86ddfb25e56b41020accae61597097561fd17f38ae88c299d6c8e3f4cf9bcd30
 
 name:           versta
 version:        0.1.0.0
@@ -30,6 +30,9 @@ library
       App.Context
       App.Monad
       Collector.SwaggerCollector
+      Data.AsyncApi
+      Data.AsyncApi.Internal
+      Data.AsyncApi.Lens
       Effect.HttpService
       Lib
       Server
@@ -43,12 +46,18 @@ library
     , async
     , base
     , bytestring
+    , co-log
+    , co-log-core
     , exceptions
     , extra
+    , fast-logger
     , http-client
     , http-conduit
+    , insert-ordered-containers
     , lens
+    , monad-logger
     , mtl
+    , scientific
     , servant
     , servant-server
     , swagger2
@@ -60,7 +69,7 @@ library
     , yaml
   default-language: Haskell2010
 
-executable versta-dashboard-exe
+executable versta-exe
   main-is: Main.hs
   other-modules:
       Paths_versta
@@ -72,12 +81,18 @@ executable versta-dashboard-exe
     , async
     , base
     , bytestring
+    , co-log
+    , co-log-core
     , exceptions
     , extra
+    , fast-logger
     , http-client
     , http-conduit
+    , insert-ordered-containers
     , lens
+    , monad-logger
     , mtl
+    , scientific
     , servant
     , servant-server
     , swagger2
@@ -90,7 +105,7 @@ executable versta-dashboard-exe
     , yaml
   default-language: Haskell2010
 
-test-suite versta-dashboard-test
+test-suite versta-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
@@ -104,13 +119,19 @@ test-suite versta-dashboard-test
     , async
     , base
     , bytestring
+    , co-log
+    , co-log-core
     , exceptions
     , extra
+    , fast-logger
     , hspec
     , http-client
     , http-conduit
+    , insert-ordered-containers
     , lens
+    , monad-logger
     , mtl
+    , scientific
     , servant
     , servant-server
     , swagger2

@@ -1,0 +1,118 @@
+{
+  "asyncapi" : "2.0.0",
+  "info" : {
+    "title" : "Order service",
+    "description" : "Service for order processing",
+    "version" : "1.0.0"
+  },
+  "servers" : {
+    "Kafka broker node 2" : {
+      "url" : "node02.kafka.dev.test.local:9092",
+      "protocol" : "kafka"
+    },
+    "Kafka broker node 1" : {
+      "url" : "node01.kafka.dev.test.local:9092",
+      "protocol" : "kafka"
+    }
+  },
+  "channels" : {
+    "order.create" : {
+      "description" : "Topic for order creation",
+      "publish" : {
+        "traits" : [ ],
+        "tags" : [ ],
+        "message" : {
+          "name" : "AvroCreateOutputMessageCommand",
+          "title" : "neherim.asyncapi.example.messages.AvroCreateOutputMessageCommand",
+          "payload" : {
+            "type" : "object",
+            "required" : [
+              "receiverId",
+              "attachments"
+            ],
+            "properties" : {
+              "receiverId" : {
+                "type" : "integer",
+                "format" : "int64",
+                "description" : "ID получателя"
+              },
+              "attachments" : {
+                "type" : "array",
+                "description" : "Список припреплённых файлов",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "path" : {
+                      "type" : "string",
+                      "description" : "Путь к файлу"
+                    },
+                    "type" : {
+                      "type" : "string",
+                      "description" : "Код файла"
+                    }
+                  }
+                }
+              },
+              "statusDetails" : {
+                "type" : "string",
+                "description" : "Детализация изменения статуса"
+              },
+              "commandData" : {
+                "type" : "object",
+                "description" : "Обшие данные команды",
+                "properties" : {
+                  "id" : {
+                    "type" : "string",
+                    "description" : "Идентификатор команды"
+                  },
+                  "timestampMs" : {
+                    "type" : "integer",
+                    "format" : "int64",
+                    "description" : "Таймштамп создания команды"
+                  }
+                }
+              },
+              "inputMessageId" : {
+                "type" : "string",
+                "description" : "Идентификатор сообщения"
+              },
+              "statusCode" : {
+                "type" : "integer",
+                "format" : "int32",
+                "description" : "Код нового статуса"
+              }
+            }
+          }
+        }
+      },
+      "deprecated" : false
+    },
+    "order.event" : {
+      "description" : "Order events",
+      "subscribe" : {
+        "traits" : [ ],
+        "tags" : [ ],
+        "message" : {
+          "name" : "OutputMessagesCreated",
+          "payload" : {
+            "id" : "urn:jsonschema:com:github:neherim:asyncapi:example:messages:OutputMessagesCreated",
+            "properties" : {
+              "orderId" : {
+                "type" : "string"
+              },
+              "status" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      },
+      "deprecated" : false
+    }
+  },
+  "tags" : [ ],
+  "externalDocs" : {
+    "url" : "https://www.asyncapi.com/docs",
+    "description" : "Additional docs"
+  }
+}

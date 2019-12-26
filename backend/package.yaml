@@ -31,12 +31,18 @@ dependencies:
   - lens
   - unordered-containers
   - async
+  - co-log
+  - co-log-core
+  - monad-logger
+  - fast-logger
+  - insert-ordered-containers
+  - scientific
 
 library:
   source-dirs: src
 
 executables:
-  versta-dashboard-exe:
+  versta-exe:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -47,7 +53,7 @@ executables:
     - versta
 
 tests:
-  versta-dashboard-test:
+  versta-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:

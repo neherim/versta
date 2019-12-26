@@ -18,7 +18,7 @@ buildContext config = do
   let ctxConfig     = config
   ctxHttpManager   <- httpConnectionManager
   ctxSchema        <- emptySchema >>= newIORef
-  return AppContext{..}
+  return Context{..}
 
 runHttpServer :: AppContext -> IO ()
 runHttpServer ctx = let serverPort = port $ ctxConfig ctx in
