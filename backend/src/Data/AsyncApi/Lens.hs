@@ -6,9 +6,9 @@
 {-# LANGUAGE DataKinds #-}
 module Data.AsyncApi.Lens where
 
-import Control.Lens
-import Data.AsyncApi.Internal
-import Data.Swagger.Internal
+import           Control.Lens
+import           Data.AsyncApi.Internal
+import           Data.Swagger.Internal
 
 makeFields ''AsyncApi
 makeFields ''Server

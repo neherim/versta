@@ -5,28 +5,28 @@
 module Data.AsyncApi.Internal where
 
 import           Data.Aeson
-import Data.Text
-import           Data.Data                (Data(..), Typeable, mkConstr, mkDataType, Fixity(..), Constr, DataType, constrIndex)
-import           GHC.Generics             (Generic)
-import qualified Data.ByteString.Lazy as LBS
-import Data.Swagger.Internal.Utils
-import Data.Swagger.Internal
-import Data.Swagger.Internal.AesonUtils (sopSwaggerGenericToJSON
-                                        ,sopSwaggerGenericToJSONWithOpts
-                                        ,sopSwaggerGenericParseJSON
-                                        ,HasSwaggerAesonOptions(..)
-                                        ,AesonDefaultValue(..)
-                                        ,mkSwaggerAesonOptions
-                                        ,saoAdditionalPairs
-                                        ,saoSubObject)
+import           Data.Text
+import           Data.Data                                ( Data(..)
+                                                          , Typeable
+                                                          , mkConstr
+                                                          , mkDataType
+                                                          , Fixity(..)
+                                                          , Constr
+                                                          , DataType
+                                                          , constrIndex
+                                                          )
+import           GHC.Generics                             ( Generic )
+import qualified Data.ByteString.Lazy          as LBS
+import           Data.Swagger.Internal.Utils
+import           Data.Swagger.Internal
 
 data AsyncApi = AsyncApi
   { -- | Provides metadata about the API.
     -- The metadata can be used by the clients if needed.
-    _asyncapiInfo :: Info
+    _asyncApiInfo :: Info
     -- | Provides connection details of servers.
-  , _asyncapiServers :: Definitions Server
-  , _asyncapiChannels :: Definitions Channel
+  , _asyncApiServers :: Definitions Server
+  , _asyncApiChannels :: Definitions Channel
   } deriving (Eq, Show, Generic, Data, Typeable)
 
 
@@ -55,10 +55,10 @@ data Channel = Channel
 data AsyncOperation = AsyncOperation
   {
     -- | Unique string used to identify the Asyncoperation. The id MUST be unique among all operations described in the API. The operationId value is case-sensitive. Tools and libraries MAY use the operationId to uniquely identify an Asyncoperation, therefore, it is RECOMMENDED to follow common programming naming conventions.
-    _asyncoperationOperationId :: Maybe Text
-  , _asyncoperationSummary :: Maybe Text
-  , _asyncoperationDescription :: Maybe Text
-  , _asyncoperationMessage :: Maybe (Referenced Message)
+    _asyncOperationOperationId :: Maybe Text
+  , _asyncOperationSummary :: Maybe Text
+  , _asyncOperationDescription :: Maybe Text
+  , _asyncOperationMessage :: Maybe (Referenced Message)
   } deriving (Eq, Show, Generic, Data, Typeable)
 
 data Message = Message
@@ -71,7 +71,7 @@ data Message = Message
 
 
 instance FromJSON AsyncApi where
-  parseJSON = genericParseJSON (jsonPrefix "Asyncapi")
+  parseJSON = genericParseJSON (jsonPrefix "AsyncApi")
 
 instance FromJSON Server where
   parseJSON = genericParseJSON (jsonPrefix "Server")
@@ -85,10 +85,11 @@ instance FromJSON AsyncOperation where
 instance FromJSON Message where
   parseJSON = genericParseJSON (jsonPrefix "Message")
 
-instance FromJSON (Referenced Message) where parseJSON = referencedParseJSON "#/components/messages/"
+instance FromJSON (Referenced Message) where
+  parseJSON = referencedParseJSON "#/components/messages/"
 
 readExample :: FilePath -> IO (Either String AsyncApi)
-readExample path =  eitherDecode <$> LBS.readFile path
+readExample path = eitherDecode <$> LBS.readFile path
 
 ex = readExample "async-api.json"
 ex2 = readExample "slack.json"
