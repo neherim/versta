@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 86ddfb25e56b41020accae61597097561fd17f38ae88c299d6c8e3f4cf9bcd30
+-- hash: 5a5fafa522b83a3599a7e83ab7211c335883b23afa4e123feefc622c7b46e5ee
 
 name:           versta
 version:        0.1.0.0
@@ -26,9 +26,6 @@ source-repository head
 library
   exposed-modules:
       App
-      App.Config
-      App.Context
-      App.Monad
       Collector.SwaggerCollector
       Data.AsyncApi
       Data.AsyncApi.Internal
@@ -36,6 +33,8 @@ library
       Effect.HttpService
       Lib
       Server
+      Types.Config
+      Types.Lens
       Types.Schema
   other-modules:
       Paths_versta
@@ -109,6 +108,7 @@ test-suite versta-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Data.AsyncApiSpec
       Paths_versta
   hs-source-dirs:
       test

@@ -65,7 +65,7 @@ data Message = Message
   {
     _messageName :: Maybe Text
   , _messageTitle :: Maybe Text
-  , _messagePayload :: Maybe Schema
+  , _messagePayload :: Maybe Value
   , _messageOneOf :: Maybe [Referenced Message]
   } deriving (Eq, Show, Generic, Data, Typeable)
 

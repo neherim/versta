@@ -9,12 +9,12 @@ import Data.Swagger (Swagger (..))
 
 
 
-readSchema :: (HttpGet m) => URL -> m ServiceSchema
-readSchema url = undefined -- fromSwagger <$> httpGetEntity url
+-- readSchema :: (HttpGet m) => URL -> m ServiceSchema
+-- readSchema url = undefined -- fromSwagger <$> httpGetEntity url
 
 
-fromSwagger :: Swagger -> ServiceSchema
-fromSwagger swagger = ServiceSchema {
-  serviceTitle = swagger^.info.title,
-  serviceDescription = swagger^.info.description
-  }
+-- fromSwagger :: Swagger -> ServiceSchema
+-- fromSwagger swagger = ServiceSchema {
+--   serviceTitle = swagger^.info.title,
+--   serviceDescription = swagger^.info.description
+--   }

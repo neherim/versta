@@ -1,18 +1,18 @@
 {-# LANGUAGE FlexibleContexts #-}
 module Effect.HttpService where
 
-import App
 import Data.Text (Text, unpack)
 import Network.HTTP.Client (HttpException, Manager, parseUrlThrow, newManager, defaultManagerSettings)
 import Network.HTTP.Simple (httpJSON, setRequestManager, getResponseBody)
-import Control.Monad.Reader (asks, MonadIO, liftIO)
 import Control.Monad.Catch (try, handle, Exception, SomeException, MonadThrow, throwM)
+import Control.Monad.Trans
 import Data.Aeson (FromJSON)
 
 type URL = Text
 
 newtype HttpError = HttpError String
   deriving (Show)
+
 
 instance Exception HttpError
 
@@ -40,7 +40,3 @@ makeHttpGet' url = do
   makeHttpGet manager url
 
 
-instance HttpGet AppM where
-  httpGetEntity url = do
-    manager <- asks ctxHttpManager
-    makeHttpGet manager url
