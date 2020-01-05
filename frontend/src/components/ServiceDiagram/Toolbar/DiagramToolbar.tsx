@@ -6,6 +6,8 @@ interface ToolbarProps {
   onZoomToFit: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onSerialization: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onDeserialization: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onSchema1: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onSchema2: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const DiagramToolbar: React.FC<ToolbarProps> =
@@ -14,7 +16,9 @@ export const DiagramToolbar: React.FC<ToolbarProps> =
      onZoomOut,
      onZoomToFit,
      onSerialization,
-     onDeserialization
+     onDeserialization,
+     onSchema1,
+     onSchema2
    }) => {
     return (
       <div className="toolbar">
@@ -23,6 +27,8 @@ export const DiagramToolbar: React.FC<ToolbarProps> =
         <button onClick={onZoomToFit}>zoom to fit</button>
         <button onClick={onSerialization}>serialize</button>
         <button onClick={onDeserialization}>deserialize</button>
+        <button onClick={onSchema1}>schema1</button>
+        <button onClick={onSchema2}>schema2</button>
       </div>
     );
   };
