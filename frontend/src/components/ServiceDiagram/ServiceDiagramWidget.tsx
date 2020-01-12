@@ -1,4 +1,4 @@
-/* import "./ServiceDiagramWidget.css"; */
+import "./ServiceDiagramWidget.css";
 import React from "react";
 import axios from "axios";
 import { CanvasWidget } from "@projectstorm/react-canvas-core";
@@ -10,9 +10,7 @@ import createEngine, {
 import { ServiceDiagramModel } from "./ServiceDiagramModel";
 import { ProjectSchema } from "./schema";
 import {
-  schemaExample1,
-  schemaExample15,
-  schemaExample2
+  schemaExample1, schema1
 } from "./ServiceDiagramModelUpdater";
 
 const FullscreenCanvas = styled(CanvasWidget)`
@@ -72,9 +70,9 @@ export const ServiceDiagramWidget: React.FC = () => {
     //          engine.setModel(newModel);
     //      });
 
-      /* const newModel = new ServiceDiagramModel();
-       * newModel.deserializeModel(serializeExample, engine);
-       * engine.setModel(newModel); */
+      const newModel = new ServiceDiagramModel();
+      newModel.deserializeModel(schema1, engine);
+      engine.setModel(newModel);
   }
 
   function onSchema1() {
@@ -84,9 +82,9 @@ export const ServiceDiagramWidget: React.FC = () => {
   }
 
   function onSchema2() {
-    let schema = new ProjectSchema(schemaExample15);
-    (engine.getModel() as ServiceDiagramModel).updateSchema(schema);
-    engine.repaintCanvas();
+      /* let schema = new ProjectSchema(schemaExample15);
+       * (engine.getModel() as ServiceDiagramModel).updateSchema(schema);
+       * engine.repaintCanvas(); */
   }
 
   return (
