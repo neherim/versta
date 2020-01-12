@@ -1,80 +1,80 @@
-import {DiagramModel} from "@projectstorm/react-diagrams-core";
-import {RightAngleLinkModel} from "@projectstorm/react-diagrams";
-import {ProjectSchema} from "./schema"
-import {ServiceNodeModel} from "./ServiceNodeModel"
-import { ServicePortModel } from "./ServicePortModel";
+import { DiagramModel } from "@projectstorm/react-diagrams-core";
+import { PortModel } from "@projectstorm/react-diagrams";
+import { ProjectSchema } from "./schema";
+import { ServiceNodeModel } from "./ServiceNodeModel";
+import { ServiceLinkModel } from "./ServiceLinkModel";
 
 export class ServiceDiagramModel extends DiagramModel {
+  getNodes(): ServiceNodeModel[] {
+    return super.getNodes() as ServiceNodeModel[];
+  }
 
-    getNodes(): ServiceNodeModel[] {
-        return super.getNodes() as ServiceNodeModel[]
+  updateSchema(schema: ProjectSchema) {
+    this.removeOldServiceNodes(schema);
+    this.updateExistedServiceNodes(schema);
+    this.addNewServiceNodes(schema);
+    this.updateLinks(schema);
+  }
+
+  private removeOldServiceNodes(schema: ProjectSchema) {
+    this.getNodes()
+      .filter(node => !schema.isServiceExist(node.getName()))
+      .forEach(node => this.removeNode(node));
+  }
+
+  private updateExistedServiceNodes(schema: ProjectSchema) {
+    for (const node of this.getNodes()) {
+      const serviceSchema = schema.getService(node.getName());
+      if (serviceSchema) {
+        node.updateFromSchema(serviceSchema);
+      }
     }
+  }
 
-    updateSchema(schema: ProjectSchema) {
-        this.removeOldServiceNodes(schema);
-        this.updateExistedServiceNodes(schema);
-        this.addNewServiceNodes(schema);
-        this.updateLinks(schema);
-    }
+  private addNewServiceNodes(schema: ProjectSchema) {
+    let serviceNodeNames = this.getNodes().map(service => service.getName());
+    schema.services
+      .filter(service => !serviceNodeNames.includes(service.name))
+      .forEach(service => this.addNode(new ServiceNodeModel(service)));
+  }
 
-    private removeOldServiceNodes(schema: ProjectSchema) {
-        this.getNodes()
-            .filter(node => !schema.isServiceExist(node.getName()))
-            .forEach(node => this.removeNode(node));
-    }
+  // -- Links --
+  private updateLinks(schema: ProjectSchema) {
+    let oldLinkModels = [...this.getLinks()];
+    let allInPorts = this.getNodes().flatMap(node => node.getInPorts());
+    let allOutPorts = this.getNodes().flatMap(node => node.getOutPorts());
+    for (let linkSchema of schema.links) {
+      let linkModel = oldLinkModels.find(
+        linkModel => linkModel.getID() == linkSchema.id
+      );
 
-    private updateExistedServiceNodes(schema: ProjectSchema) {
-        for (const node of this.getNodes()) {
-            const serviceSchema = schema.getService(node.getName());
-            if (serviceSchema) {
-                node.updateFromSchema(serviceSchema);
-            }
-        }
-    }
+      if (linkModel) {
+        // link already exist
+        console.log("link exist:");
+        console.log(linkModel);
+        oldLinkModels = oldLinkModels.filter(lnk => lnk != linkModel);
+      } else {
+        console.log("create link");
+        let fromPort = allOutPorts.find(
+          port => port.getID() == linkSchema.from
+        );
+        let toPort = allInPorts.find(port => port.getID() == linkSchema.to);
 
-    private addNewServiceNodes(schema: ProjectSchema) {
-        let serviceNodeNames = this.getNodes().map(service => service.getName());
-        schema.services
-            .filter(service => !serviceNodeNames.includes(service.name))
-            .forEach(service => this.addNode(new ServiceNodeModel(service)))
-    }
-
-    // -- Links --
-    private updateLinks(schema: ProjectSchema) {
-        let oldLinkModels  = [...this.getLinks()];
-        for (let link of schema.links) {
-            let fromPort = this.findPort(link.fromService.name, link.fromPort.name);
-            let toPort = this.findPort(link.toService.name, link.toPort.name);
-            if (fromPort && toPort) {
-                let linkModel = fromPort.getLinkToPort(toPort)
-                if (linkModel) {
-                    // link already exist
-                    oldLinkModels = oldLinkModels.filter(lnk => lnk == linkModel)
-                } else {
-                    this.addNewLink(fromPort, toPort);
-                }
-            }
-        }
-        // remove old links
-        oldLinkModels.forEach(link => this.removeLink(link));
-    }
-
-    private addNewLink(fromPort: ServicePortModel, toPort: ServicePortModel) {
         if (fromPort && toPort) {
-            const linkModel = new RightAngleLinkModel();
-            linkModel.setSourcePort(fromPort);
-            linkModel.setTargetPort(toPort);
-            linkModel.setLocked(true);
-            fromPort.reportPosition();
-            toPort.reportPosition();
-            this.addLink(linkModel);
+          this.addNewLink(linkSchema.id, fromPort, toPort);
         }
+      }
     }
+    // remove old links
+    oldLinkModels.forEach(link => this.removeLink(link));
+  }
 
-    private findPort(nodeName: string, portName: string): ServicePortModel | undefined {
-        let serviceNode = this.getNodes().find(node => node.getName() === nodeName);
-        if (serviceNode) {
-            return serviceNode.getPortByName(portName);
-        }
+  private addNewLink(id: string, fromPort: PortModel, toPort: PortModel) {
+    if (fromPort && toPort) {
+      const linkModel = new ServiceLinkModel(id, fromPort, toPort);
+      fromPort.reportPosition();
+      toPort.reportPosition();
+      this.addLink(linkModel);
     }
+  }
 }

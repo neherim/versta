@@ -26,7 +26,6 @@ server = apiGetSchema
     :<|> apiGetServiceInfo
     :<|> apiGetDemoServiceInfo
 
-
 serviceApi :: Proxy ApiV1
 serviceApi = Proxy
 

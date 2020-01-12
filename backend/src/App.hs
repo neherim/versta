@@ -3,15 +3,15 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 module App where
 
-import Control.Monad.Reader
-import Servant (Handler)
-import Data.IORef
-import Data.IORef.Extra
-import Control.Monad.Logger
-import Effect.HttpService
-import Network.HTTP.Client (Manager)
-import Types.Schema
-import Types.Config
+import           Control.Monad.Reader
+import           Servant                                  ( Handler )
+import           Data.IORef
+import           Data.IORef.Extra
+import           Control.Monad.Logger
+import           Effect.HttpService
+import           Network.HTTP.Client                      ( Manager )
+import           Types.Schema
+import           Types.Config
 
 data AppContext = AppContext {
   ctxConfig :: AppConfig,

@@ -1,57 +1,86 @@
-import {DefaultNodeModel} from '@projectstorm/react-diagrams';
-import {ServiceSchema, PortSchema} from "./schema"
-import {ServicePortModel} from "./ServicePortModel"
+import {
+  DefaultNodeModel,
+  DefaultPortModel
+} from "@projectstorm/react-diagrams";
+import { ServiceSchema, PortSchema } from "./schema";
+import { ServicePortModel } from "./ServicePortModel";
+import * as _ from "lodash";
 
 export class ServiceNodeModel extends DefaultNodeModel {
-    constructor(schema: ServiceSchema) {
-        super(schema.name, "rgb(192,255,0)");
-        this.updateFromSchema(schema);
-    }
+  constructor(schema: ServiceSchema) {
+    super({
+      id: schema.id,
+      name: schema.name,
+      // color: "rgb(192,255,0)"
+      color: "rgba(192,255,0,0.5)"
 
-    updateFromSchema(schema: ServiceSchema) {
-        this.removeOldPorts(schema);
-        this.addNewPorts(schema);
-    }
+    });
+    this.updateFromSchema(schema);
+  }
 
-    getName(): string {
-        return this.options.name as string;
-    }
+  updateFromSchema(schema: ServiceSchema) {
+    this.removeOldPorts(schema);
+    this.addNewPorts(schema);
+  }
 
-    getAllPorts() : ServicePortModel[] {
-        return (Object.values(this.getPorts())) as ServicePortModel[]
+  removePort(port: DefaultPortModel): void {
+    // clear the port from the links
+    for (let link of _.values(port.getLinks())) {
+      link.clearPort(port);
     }
-
-    getPortByName(name: string) : ServicePortModel | undefined {
-        return this.getAllPorts().find(port => port.getName() === name);
+    //clear the parent node reference
+    if (this.ports[port.getName()]) {
+      delete this.ports[port.getName()];
     }
-
-
-    private removeOldPorts(schema: ServiceSchema) {
-        this.getAllPorts()
-            .filter(port => !this.isPortExistInSchema(port, schema))
-            .forEach(port => {
-                console.log("remove port:");
-                console.log(port);
-                this.removePort(port)
-            });
-        this.getAllPorts().forEach(port => {
-            console.log("rest:");
-                console.log(port);
-            port.reportPosition()
-        });
+    if (port.getOptions().in) {
+      this.portsIn.splice(this.portsIn.indexOf(port), 1);
+    } else {
+      this.portsOut.splice(this.portsOut.indexOf(port), 1);
     }
+  }
 
-    private isPortExistInSchema(port: ServicePortModel, schema: ServiceSchema): boolean {
-        return schema.ports.find(schemaPort => port.isEqualToSchema(schemaPort)) != undefined
-    }
+  getName(): string {
+    return this.options.name as string;
+  }
 
-    private isPortExistInModel(schema: PortSchema): boolean {
-        return this.getAllPorts().find(port => port.isEqualToSchema(schema)) != undefined
-    }
+  getAllPorts(): ServicePortModel[] {
+    return Object.values(this.getPorts()) as ServicePortModel[];
+  }
 
-    private addNewPorts(schema: ServiceSchema) {
-        schema.ports
-            .filter(port => !this.isPortExistInModel(port))
-            .forEach ( port => this.addPort(new ServicePortModel(port)));
-    }
+  getPortByName(name: string): ServicePortModel | undefined {
+    return this.getAllPorts().find(port => port.getName() === name);
+  }
+
+  private removeOldPorts(schema: ServiceSchema) {
+    this.getAllPorts()
+      .filter(port => !this.isPortExistInSchema(port, schema))
+      .forEach(port => {
+        this.removePort(port);
+      });
+    this.getAllPorts().forEach(port => {
+      port.reportPosition();
+    });
+  }
+
+  private isPortExistInSchema(
+    port: ServicePortModel,
+    schema: ServiceSchema
+  ): boolean {
+    return (
+      schema.ports.find(schemaPort => port.isEqualToSchema(schemaPort)) !=
+      undefined
+    );
+  }
+
+  private isPortExistInModel(schema: PortSchema): boolean {
+    return (
+      this.getAllPorts().find(port => port.isEqualToSchema(schema)) != undefined
+    );
+  }
+
+  private addNewPorts(schema: ServiceSchema) {
+    schema.ports
+      .filter(port => !this.isPortExistInModel(port))
+      .forEach(port => this.addPort(new ServicePortModel(port)));
+  }
 }
