@@ -1206,50 +1206,50 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@projectstorm/geometry@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.0.1-beta.6.tgz#1a694edad43ba7292865205e64433e9325463f8e"
-  integrity sha512-zbklx01sUv2XEcP69TBbY+FpAsPUpKTq4T6WVzeVk0IoISm2bByP7OKAH4iQ0Yu+2WZQzi0itvuXKh9lPcXlwg==
+"@projectstorm/geometry@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.2.0.tgz#51c708fda2f95016984287a0e406f14fb084646d"
+  integrity sha512-Bu7PRdIQAbrqxTrIqGpAIgqvwGpnZSd+jqu3Dv6XvhuE8+WIZVgUBty/eTYo62Ohnc1/chjXH6EtEdgfnj9aRw==
 
-"@projectstorm/react-canvas-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.0.1-beta.6.tgz#40503c00cfc95cb01824ebc2cf78b538bb75e52b"
-  integrity sha512-31SeqqbcKFM07XkBh+myrgyzZWSAD72OWB7gcX4b7Qk2GhfKgASkInpv8MAhIvn+7OdOiMu/M9Srb2DWm6sAeg==
+"@projectstorm/react-canvas-core@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.2.0.tgz#46fe2316ff949d7da07e2d215bc0bc6fdd98ca05"
+  integrity sha512-GxypohDe86O+4DtHi2joGaDuoP7L8l4ppe/1987JhcPM+RmFZw4FJzNVg7kUVIPvQDMBhebXwywDGEz85uluMQ==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.2.0"
 
-"@projectstorm/react-diagrams-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.0.1-beta.6.tgz#3977f9d760795df011b5081edaa7ae7ae52e120a"
-  integrity sha512-rRR3rQ8CC9yZTKrE6bzloLXYpio6k0TOSLD7mz3iDaK23vqD0sjopBBbibZjHyo6Qn8xQo2iVKIgL9SE+FH1kg==
+"@projectstorm/react-diagrams-core@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.2.0.tgz#cc70bf237bf565a21be65857cc7213798707f427"
+  integrity sha512-Vkjt2dUJK+aoS0ZXc7TqRPV0wXaPEe5CsEhXUK3CqBXyvVBE1/iN1qec36uKNWxpdG3OB/PBd1X1fQq64C4J3g==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-canvas-core" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.2.0"
+    "@projectstorm/react-canvas-core" "^6.2.0"
 
-"@projectstorm/react-diagrams-defaults@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.0.1-beta.6.tgz#861869c5b3054f25a3054961621d0a9e05a00465"
-  integrity sha512-VDdl9+EfS5YnzT9t8Ebmw8OjaLrS7twwHoc3d/uXnHjr099iHdYKbyxQU1zejITewla6mM3+1CcjcgGjB4tc4A==
+"@projectstorm/react-diagrams-defaults@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.2.0.tgz#571cabc12bb92d1bd1f7099d3dff7b82e74339eb"
+  integrity sha512-kD4+S8oh/7hzgGEyQqC6mYupr2YM/3y2CJJcHff9IBubt+V2DJndvll3UJOA+sy5VXZl82mvOpz5nLjMQB142w==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.2.0"
 
-"@projectstorm/react-diagrams-routing@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.0.1-beta.6.tgz#4ced03aa033ca87b89b7acfae3bb974ee1c172d7"
-  integrity sha512-XaH6wigPHfiF+KvkuHBYMCdodigpvDZnZOpUjdf50Mbm2EJZs0wjm/kUz9tK00Gx1JC5/no328aU1cMR6o0HbQ==
+"@projectstorm/react-diagrams-routing@^6.2.0":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.2.0.tgz#12bf14c6184360734cd52c170d3136bd1464a36a"
+  integrity sha512-+VnhCarWA6TPt5THIlEX1lOgHI+6MNjvSxSE8K06/iPeYhcVa9XcyX9fCthUBBzOYU1hie36o/jXBPri/sambA==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.2.0"
+    "@projectstorm/react-diagrams-core" "^6.2.0"
+    "@projectstorm/react-diagrams-defaults" "^6.2.0"
 
-"@projectstorm/react-diagrams@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.0.1-beta.6.tgz#f9b79a5e3ac970be8cca09e471ddd877112ff935"
-  integrity sha512-NIeO4+GxvZ6o22D5qr7HrcvdjYxeDGWL1IzE/YaakFuNH7rdjJtD15ULicyDnZHOCDhSan2bSTQR7ltTrqHJ4w==
+"@projectstorm/react-diagrams@^6.0.1-beta.7":
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.2.0.tgz#7987c08c5e13632152401e61dff3515c5dcd0359"
+  integrity sha512-rAemEZ8WAyHXAqCbqudUcJ62kixjmM5L1Fa5u7Oa1t08tijIggMUQll7vw7513mf0IrfI56ETj84leC4wpju7w==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-routing" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.2.0"
+    "@projectstorm/react-diagrams-defaults" "^6.2.0"
+    "@projectstorm/react-diagrams-routing" "^6.2.0"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -2269,9 +2269,9 @@ bluebird@^3.5.5:
   integrity sha512-aBQ1FxIa7kSWCcmKHlcHFlT2jt6J/l4FzC7KcPELkOJOsPOb/bccdhmIrKDfXhwFrmc7vDoDrrepFvGqjyXGJg==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
-  integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
+  version "4.11.9"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.9.tgz#26d556829458f9d1e81fc48952493d0ba3507828"
+  integrity sha512-E6QoYqCKZfgatHTdHzs1RRKP7ip4vvm+EyRUeE2RF0NblwVvb0p6jSVeNTOFxPn26QXN2o6SMfNxKp6kU8zQaw==
 
 body-parser@1.19.0:
   version "1.19.0"
@@ -3675,9 +3675,9 @@ electron-to-chromium@^1.3.247:
   integrity sha512-0kUppiHQvHEENHh+nTtvTt4eXMwcPyWmMaj73GPrSEm3ldKhmmHuOH6IjrmuW6YmyS/fpXcLvMQLNVpqRhpNWw==
 
 elliptic@^6.0.0:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.1.tgz#c380f5f909bf1b9b4428d028cd18d3b0efd6b52b"
-  integrity sha512-xvJINNLbTeWQjrl6X+7eQCrIy/YPv5XCpKW6kB5mKvtnGILoLDcySuwomfdzt0BMdLNVnuRNTuzKNHj0bva1Cg==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.3.tgz#cb59eb2efdaf73a0bd78ccd7015a62ad6e0f93d6"
+  integrity sha512-IMqzv5wNQf+E6aHeIqATs0tOLeOTwj1QKbRcS3jBbYkl5oLAserA8yJTT7/VyHUYG91PRmPyeQDObKLPpeS4dw==
   dependencies:
     bn.js "^4.4.0"
     brorand "^1.0.1"
