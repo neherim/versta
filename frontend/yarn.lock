@@ -1206,50 +1206,50 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@projectstorm/geometry@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.0.1-beta.6.tgz#1a694edad43ba7292865205e64433e9325463f8e"
-  integrity sha512-zbklx01sUv2XEcP69TBbY+FpAsPUpKTq4T6WVzeVk0IoISm2bByP7OKAH4iQ0Yu+2WZQzi0itvuXKh9lPcXlwg==
+"@projectstorm/geometry@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.3.0.tgz#2c37dee4b907ed0086e91680b815cd16188353f0"
+  integrity sha512-Fc2JVAkZPnQMAKdn4FtAApvl40S+sUL9E2usRoXcnqRbwmhD3WHBLhmDIvUTArIyKJJOTzyQW4+O7+NcyrK9/Q==
 
-"@projectstorm/react-canvas-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.0.1-beta.6.tgz#40503c00cfc95cb01824ebc2cf78b538bb75e52b"
-  integrity sha512-31SeqqbcKFM07XkBh+myrgyzZWSAD72OWB7gcX4b7Qk2GhfKgASkInpv8MAhIvn+7OdOiMu/M9Srb2DWm6sAeg==
+"@projectstorm/react-canvas-core@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.3.0.tgz#dfe3072bb3817910c650a1fa004ce439f5bd0669"
+  integrity sha512-mChKZpdfrTWdGvg1OB0EOaCz5ovC6spY/MJfGtxYek5gU36mjoAXE+L6uLzjELTM3J/TJhDkm3Wd7jW9vCNUyA==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.3.0"
 
-"@projectstorm/react-diagrams-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.0.1-beta.6.tgz#3977f9d760795df011b5081edaa7ae7ae52e120a"
-  integrity sha512-rRR3rQ8CC9yZTKrE6bzloLXYpio6k0TOSLD7mz3iDaK23vqD0sjopBBbibZjHyo6Qn8xQo2iVKIgL9SE+FH1kg==
+"@projectstorm/react-diagrams-core@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.3.0.tgz#4e225e86a0389f383020b4a9e8bbce2e55781cd2"
+  integrity sha512-xdAA+Rz5vE0adNa/rloXvjDQ2MFlicmdcZHEFTrPH+nV8miAqhHimzbCge8ypAwQyVXS8CLdxUF2RQA/1B8Sng==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-canvas-core" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.3.0"
+    "@projectstorm/react-canvas-core" "^6.3.0"
 
-"@projectstorm/react-diagrams-defaults@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.0.1-beta.6.tgz#861869c5b3054f25a3054961621d0a9e05a00465"
-  integrity sha512-VDdl9+EfS5YnzT9t8Ebmw8OjaLrS7twwHoc3d/uXnHjr099iHdYKbyxQU1zejITewla6mM3+1CcjcgGjB4tc4A==
+"@projectstorm/react-diagrams-defaults@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.3.0.tgz#2479de1abb3e638df04f33f09413d326b27e29ea"
+  integrity sha512-5qBFg9sSl3OlIt5Edv45uECgkjqjpg+PSRYderOXJjEQi3SYhf9l0YlfMzpTvt5GmVnyX7gQProyt/p/e4e9rQ==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.3.0"
 
-"@projectstorm/react-diagrams-routing@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.0.1-beta.6.tgz#4ced03aa033ca87b89b7acfae3bb974ee1c172d7"
-  integrity sha512-XaH6wigPHfiF+KvkuHBYMCdodigpvDZnZOpUjdf50Mbm2EJZs0wjm/kUz9tK00Gx1JC5/no328aU1cMR6o0HbQ==
+"@projectstorm/react-diagrams-routing@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.3.0.tgz#38b8973ac35e40639dde7490840217d8cb1e66fb"
+  integrity sha512-kgq0MNrjbeEcpQceOORL/5bOQJNF70c/If2x/jqdEKfswzGC9VeUYOKZvzYCRhxsOcpn9hCA6+6Wkd8e4zFzYQ==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.3.0"
+    "@projectstorm/react-diagrams-core" "^6.3.0"
+    "@projectstorm/react-diagrams-defaults" "^6.3.0"
 
-"@projectstorm/react-diagrams@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.0.1-beta.6.tgz#f9b79a5e3ac970be8cca09e471ddd877112ff935"
-  integrity sha512-NIeO4+GxvZ6o22D5qr7HrcvdjYxeDGWL1IzE/YaakFuNH7rdjJtD15ULicyDnZHOCDhSan2bSTQR7ltTrqHJ4w==
+"@projectstorm/react-diagrams@^6.0.1-beta.7":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.3.0.tgz#bd435699f04b63ff57b8434a259aa2dc3b494129"
+  integrity sha512-qHPhlTBsZk/iwXAPXMh6qzmk66+7U4cShSwXM/3OqDkrBi6yI7nLtdY5VhioO0qBhhOyR8v1C8oeYGFqY0pa8Q==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-routing" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.3.0"
+    "@projectstorm/react-diagrams-defaults" "^6.3.0"
+    "@projectstorm/react-diagrams-routing" "^6.3.0"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -2023,13 +2023,12 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-axios@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
-  integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
-    follow-redirects "1.5.10"
-    is-buffer "^2.0.2"
+    follow-redirects "^1.10.0"
 
 axobject-query@^2.0.2:
   version "2.0.2"
@@ -3335,14 +3334,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.8, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
-  dependencies:
-    ms "2.0.0"
-
-debug@^3.0.0, debug@^3.2.5, debug@^3.2.6:
+debug@^3.2.5, debug@^3.2.6:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -4369,19 +4361,10 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-  dependencies:
-    debug "=3.1.0"
-
-follow-redirects@^1.0.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.9.0.tgz#8d5bcdc65b7108fe1508649c79c12d732dcedb4f"
-  integrity sha512-CRcPzsSIbXyVDl0QI01muNDu69S8trU4jArW9LpOt2WtC6LyUJetcIrmfHsRBx7/Jb6GHJUiuqyYxPooFfNt6A==
-  dependencies:
-    debug "^3.0.0"
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.1.tgz#5f69b813376cee4fd0474a3aba835df04ab763b7"
+  integrity sha512-SSG5xmZh1mkPGyKzjZP8zLjltIfpW32Y5QpdNJyjcfGxK3qo3NDDkZOZSFiGn1A6SclQxY9GzEwAHQ3dmYRWpg==
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -5238,11 +5221,6 @@ is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
-
-is-buffer@^2.0.2:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.4.tgz#3e572f23c8411a5cfd9557c849e3665e0b290623"
-  integrity sha512-Kq1rokWXOPXWuaMAqZiJW4XxsmD9zGx9q4aePabbn3qCRGedtH7Cm+zV8WETitMfu1wdh+Rvd6w5egwSngUX2A==
 
 is-callable@^1.1.4:
   version "1.1.4"
