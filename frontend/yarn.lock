@@ -1206,50 +1206,50 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@projectstorm/geometry@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.0.1-beta.6.tgz#1a694edad43ba7292865205e64433e9325463f8e"
-  integrity sha512-zbklx01sUv2XEcP69TBbY+FpAsPUpKTq4T6WVzeVk0IoISm2bByP7OKAH4iQ0Yu+2WZQzi0itvuXKh9lPcXlwg==
+"@projectstorm/geometry@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/geometry/-/geometry-6.7.0.tgz#36ae4f6d593d2c2b273d34510be8cc26768dfd6a"
+  integrity sha512-zNFe1gbAk5Vt0nDO0/pKVHp8ukIKWZb0JJ9UdhqPtt1AazoZ5SwbltHXgjpZ2jgyKlLjfB0ne1aRzRkW14qQVg==
 
-"@projectstorm/react-canvas-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.0.1-beta.6.tgz#40503c00cfc95cb01824ebc2cf78b538bb75e52b"
-  integrity sha512-31SeqqbcKFM07XkBh+myrgyzZWSAD72OWB7gcX4b7Qk2GhfKgASkInpv8MAhIvn+7OdOiMu/M9Srb2DWm6sAeg==
+"@projectstorm/react-canvas-core@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-canvas-core/-/react-canvas-core-6.7.0.tgz#d6cd142d662ce9554bd6c4aaec59352da8bd12f6"
+  integrity sha512-/2T4B9sKTTNUQBjkad0hWHl0pM3e6HGQ9hcKUby9ZXq3qHuZhNxuCTPKdwwbOwH4AxhjRrkigW9CvAg+tbjURQ==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.7.0"
 
-"@projectstorm/react-diagrams-core@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.0.1-beta.6.tgz#3977f9d760795df011b5081edaa7ae7ae52e120a"
-  integrity sha512-rRR3rQ8CC9yZTKrE6bzloLXYpio6k0TOSLD7mz3iDaK23vqD0sjopBBbibZjHyo6Qn8xQo2iVKIgL9SE+FH1kg==
+"@projectstorm/react-diagrams-core@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-core/-/react-diagrams-core-6.7.0.tgz#2b70d92612edf6b704a66ccdce300098f7499176"
+  integrity sha512-9GUBBwaAzDalsn7rms/zw7lb9NIbzi7kYzD7gyggQHtyEdjIlVesAV8z1AmdD0w+sF13YRFGof/XA1nQKzBZgw==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-canvas-core" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.7.0"
+    "@projectstorm/react-canvas-core" "^6.7.0"
 
-"@projectstorm/react-diagrams-defaults@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.0.1-beta.6.tgz#861869c5b3054f25a3054961621d0a9e05a00465"
-  integrity sha512-VDdl9+EfS5YnzT9t8Ebmw8OjaLrS7twwHoc3d/uXnHjr099iHdYKbyxQU1zejITewla6mM3+1CcjcgGjB4tc4A==
+"@projectstorm/react-diagrams-defaults@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-defaults/-/react-diagrams-defaults-6.7.0.tgz#2ed15981fc10e275a88c88de68e15b7617f87613"
+  integrity sha512-H1Kj16vKKU7hIIai9EfePNn7LZALFdM7q0ARiYISGkPaYGSrH4sRQ8Fyo+w7p2gpaXYkVu8Z2zmVGuISbI22lw==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.7.0"
 
-"@projectstorm/react-diagrams-routing@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.0.1-beta.6.tgz#4ced03aa033ca87b89b7acfae3bb974ee1c172d7"
-  integrity sha512-XaH6wigPHfiF+KvkuHBYMCdodigpvDZnZOpUjdf50Mbm2EJZs0wjm/kUz9tK00Gx1JC5/no328aU1cMR6o0HbQ==
+"@projectstorm/react-diagrams-routing@^6.7.0":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams-routing/-/react-diagrams-routing-6.7.0.tgz#b6e6145ac33915e358f74835351636085990cb36"
+  integrity sha512-2i4aGPW9BsUqJKUQvPlokQ+BN2JFtY/DZfdqOiptr4wZjVWwjYvFBACzDG44I96nu92vG3k+ad4Zfx9fBJKY9w==
   dependencies:
-    "@projectstorm/geometry" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
+    "@projectstorm/geometry" "^6.7.0"
+    "@projectstorm/react-diagrams-core" "^6.7.0"
+    "@projectstorm/react-diagrams-defaults" "^6.7.0"
 
-"@projectstorm/react-diagrams@^6.0.1-beta.6":
-  version "6.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.0.1-beta.6.tgz#f9b79a5e3ac970be8cca09e471ddd877112ff935"
-  integrity sha512-NIeO4+GxvZ6o22D5qr7HrcvdjYxeDGWL1IzE/YaakFuNH7rdjJtD15ULicyDnZHOCDhSan2bSTQR7ltTrqHJ4w==
+"@projectstorm/react-diagrams@^6.0.1-beta.7":
+  version "6.7.0"
+  resolved "https://registry.yarnpkg.com/@projectstorm/react-diagrams/-/react-diagrams-6.7.0.tgz#b4da502e98b2047c39ac2c5c0527258ac3c89be2"
+  integrity sha512-bxbjuLJDnBjRqriqbswxChlDgDDK0SdxtZDy8UrP5nOhsiBiX2C+6NZvzI4abijN4070dUTMpmPVKjHC4X+Z0w==
   dependencies:
-    "@projectstorm/react-diagrams-core" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-defaults" "^6.0.1-beta.6"
-    "@projectstorm/react-diagrams-routing" "^6.0.1-beta.6"
+    "@projectstorm/react-diagrams-core" "^6.7.0"
+    "@projectstorm/react-diagrams-defaults" "^6.7.0"
+    "@projectstorm/react-diagrams-routing" "^6.7.0"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -1755,11 +1755,11 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1:
   integrity sha512-RO1ibKvd27e6FEShVFfPALuHI3WjSVNeK5FIsmme/LYRNxjKuNj+Dt7bucLa6NdSv3JcVTyMlm9kGR84z1XpaQ==
 
 ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.5.5:
-  version "6.10.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.10.2.tgz#d3cea04d6b017b2894ad69040fec8b623eb4bd52"
-  integrity sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
+  version "6.12.6"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
+  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
   dependencies:
-    fast-deep-equal "^2.0.1"
+    fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
@@ -4194,10 +4194,10 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-fast-deep-equal@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
+fast-deep-equal@^3.1.1:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+  integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
 fast-glob@^2.0.2:
   version "2.2.7"
@@ -4212,9 +4212,9 @@ fast-glob@^2.0.2:
     micromatch "^3.1.10"
 
 fast-json-stable-stringify@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz#d5142c0caee6b1189f87d3a76111064f86c8bbf2"
-  integrity sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz#874bf69c6f404c2b5d99c481341399fd55892633"
+  integrity sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -9959,9 +9959,9 @@ upper-case@^1.1.1:
   integrity sha1-9rRQHC7EzdJrp4vnIilh3ndiFZg=
 
 uri-js@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
-  integrity sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
+  integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
 
