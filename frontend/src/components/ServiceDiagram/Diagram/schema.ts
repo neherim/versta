@@ -1,7 +1,13 @@
+export interface Point {
+    x: number,
+    y: number
+}
+
 export interface LinkSchema {
     id: string,
     from: string,
     to: string,
+    points: Point[]
 }
 
 export interface PortSchema {
@@ -13,6 +19,7 @@ export interface PortSchema {
 export interface ServiceSchema {
     id: string,
     name: string,
+    position: Point,
     ports: PortSchema[],
 }
 
@@ -23,10 +30,6 @@ export class ProjectSchema {
     constructor(json: any) {
         this.services = json.services;
         this.links = json.links;
-    }
-
-    isServiceExist(name: string): boolean {
-        return this.getService(name) !== undefined;
     }
 
     getService(name: string): ServiceSchema | undefined {
