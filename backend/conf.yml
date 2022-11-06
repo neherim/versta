@@ -2,3 +2,5 @@ port: 8080
 services:
   petstore:
     swagger: https://petstore.swagger.io/v2/swagger.json
+schema:
+  file: ./schema.json

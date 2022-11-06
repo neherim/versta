@@ -1,0 +1,94 @@
+{
+  "links": [
+    {
+      "points": [],
+      "to": "2a5345b2-91df-458f-9e74-ca53b754cef5",
+      "from": "ace36a06-f746-4891-b682-245538352e77",
+      "id": "bb9d2f7b-8407-40e5-ae67-dd1fa017e471"
+    },
+    {
+      "points": [],
+      "to": "1b8d7eca-ad3d-4f53-acac-c2462276f319",
+      "from": "ace36a06-f746-4891-b682-245538352e77",
+      "id": "0cb4e809-6af6-40b3-a471-05293e444f9e"
+    },
+    {
+      "points": [],
+      "to": "7fa69371-4521-445d-b827-de362241f5ae",
+      "from": "273094d0-f46f-44d7-9a97-95992d71573a",
+      "id": "da5381b3-8e15-4387-9310-44c80edbf7aa"
+    }
+  ],
+  "services": [
+    {
+      "name": "scrooge-message-registry",
+      "ports": [
+        {
+          "input": true,
+          "name": "SendOutputResponseCommand",
+          "id": "7fa69371-4521-445d-b827-de362241f5ae"
+        },
+        {
+          "input": false,
+          "name": "ProcessInputRequestCommand",
+          "id": "ace36a06-f746-4891-b682-245538352e77"
+        }
+      ],
+      "id": "e11ccb7b-8895-4b0b-8eb5-58347294b2be",
+      "position": {
+        "x": 105,
+        "y": 75
+      }
+    },
+    {
+      "name": "scrooge-person",
+      "ports": [
+        {
+          "input": true,
+          "name": "ProcessInputRequestCommand",
+          "id": "1b8d7eca-ad3d-4f53-acac-c2462276f319"
+        },
+        {
+          "input": false,
+          "name": "SendOutputResponseCommand",
+          "id": "11f2148d-bb5e-4d48-877d-8cbdc977cd6f"
+        },
+        {
+          "input": false,
+          "name": "PersonalDataUpdated",
+          "id": "4527d425-4e72-4c96-bae0-ea3aee42dcf3"
+        },
+        {
+          "input": false,
+          "name": "OrganizationChanged",
+          "id": "7d69bd8e-b892-46f0-93de-12c173fdd3ea"
+        }
+      ],
+      "id": "6b3b3532-eb71-472f-a4a9-e8f3da6456ee",
+      "position": {
+        "x": 615,
+        "y": 75
+      }
+    },
+    {
+      "name": "scrooge-statement",
+      "ports": [
+        {
+          "input": true,
+          "name": "ProcessInputRequestCommand",
+          "id": "2a5345b2-91df-458f-9e74-ca53b754cef5"
+        },
+        {
+          "input": false,
+          "name": "SendOutputResponseCommand",
+          "id": "63b7c96f-f584-40cd-83aa-39496106dba6"
+        }
+      ],
+      "id": "b5f22072-1920-493e-aa43-315d2f778586",
+      "position": {
+        "x": 615,
+        "y": 195
+      }
+    }
+  ]
+}

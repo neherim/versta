@@ -31,12 +31,11 @@ dependencies:
   - lens
   - unordered-containers
   - async
-  - co-log
-  - co-log-core
   - monad-logger
   - fast-logger
   - insert-ordered-containers
   - scientific
+  - directory
 
 library:
   source-dirs: src
@@ -64,3 +63,11 @@ tests:
     - versta
     - hspec
     - QuickCheck
+
+default-extensions:
+  - FlexibleContexts
+  - FlexibleInstances
+  - DeriveGeneric
+  - DerivingStrategies
+  - RecordWildCards
+  - BangPatterns

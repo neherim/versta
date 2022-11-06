@@ -1,9 +1,9 @@
 import React from 'react';
-import {ServiceDiagramWidget} from "./ServiceDiagram/ServiceDiagramWidget";
+import {ProjectWorkspacePage} from "./ServiceDiagram/ProjectWorkspacePage";
 
 const App: React.FC = () => {
   return (
-      <ServiceDiagramWidget/>
+      <ProjectWorkspacePage/>
   );
 };
 

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5a5fafa522b83a3599a7e83ab7211c335883b23afa4e123feefc622c7b46e5ee
+-- hash: e55f68c6de7fe3ed5e5b70120c55a66363ff60db2a8ad9c6f93fc06cc57438d1
 
 name:           versta
 version:        0.1.0.0
@@ -26,27 +26,29 @@ source-repository head
 library
   exposed-modules:
       App
+      App.Error
       Collector.SwaggerCollector
       Data.AsyncApi
       Data.AsyncApi.Internal
       Data.AsyncApi.Lens
       Effect.HttpService
+      Effect.SchemaStorage
       Lib
       Server
       Types.Config
-      Types.Lens
       Types.Schema
+      Utils.JsonUtils
   other-modules:
       Paths_versta
   hs-source-dirs:
       src
+  default-extensions: FlexibleContexts FlexibleInstances DeriveGeneric DerivingStrategies RecordWildCards BangPatterns
   build-depends:
       aeson
     , async
     , base
     , bytestring
-    , co-log
-    , co-log-core
+    , directory
     , exceptions
     , extra
     , fast-logger
@@ -74,14 +76,14 @@ executable versta-exe
       Paths_versta
   hs-source-dirs:
       app
+  default-extensions: FlexibleContexts FlexibleInstances DeriveGeneric DerivingStrategies RecordWildCards BangPatterns
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
     , async
     , base
     , bytestring
-    , co-log
-    , co-log-core
+    , directory
     , exceptions
     , extra
     , fast-logger
@@ -109,9 +111,11 @@ test-suite versta-test
   main-is: Spec.hs
   other-modules:
       Data.AsyncApiSpec
+      Effect.SchemaStorageSpec
       Paths_versta
   hs-source-dirs:
       test
+  default-extensions: FlexibleContexts FlexibleInstances DeriveGeneric DerivingStrategies RecordWildCards BangPatterns
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       QuickCheck
@@ -119,8 +123,7 @@ test-suite versta-test
     , async
     , base
     , bytestring
-    , co-log
-    , co-log-core
+    , directory
     , exceptions
     , extra
     , fast-logger
