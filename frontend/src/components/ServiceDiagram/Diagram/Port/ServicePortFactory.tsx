@@ -1,15 +1,13 @@
-import { DefaultPortModel } from './DefaultPortModel';
-import { AbstractModelFactory } from '@projectstorm/react-canvas-core';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
+import {AbstractModelFactory} from '@projectstorm/react-canvas-core';
+import {DiagramEngine} from '@projectstorm/react-diagrams-core';
+import {ServicePortModel} from "./ServicePortModel";
 
-export class DefaultPortFactory extends AbstractModelFactory<DefaultPortModel, DiagramEngine> {
-	constructor() {
-		super('default');
-	}
+export class ServicePortFactory extends AbstractModelFactory<ServicePortModel, DiagramEngine> {
+  constructor() {
+    super('service-port');
+  }
 
-	generateModel(): DefaultPortModel {
-		return new DefaultPortModel({
-			name: 'unknown'
-		});
-	}
+  generateModel(): ServicePortModel {
+    return new ServicePortModel();
+  }
 }

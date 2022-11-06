@@ -1,16 +1,17 @@
 import {DiagramModel} from "@projectstorm/react-diagrams-core";
 import {PortModel} from "@projectstorm/react-diagrams";
-import {ProjectSchema} from "./schema";
+import {PointSchema, ProjectSchema} from "./schema";
 import {ServiceNodeModel} from "./Node/ServiceNodeModel";
 import {ServiceLinkModel} from "./Link/ServiceLinkModel";
 
-export class ProjectServiceDiagramModel extends DiagramModel {
+export class ProjectDiagramModel extends DiagramModel {
   constructor(schema: ProjectSchema | undefined = undefined) {
     super();
     this.setGridSize(15);
     if (schema) {
       this.createNodes(schema);
       this.createLinks(schema);
+      this.lock();
     }
   }
 
@@ -28,6 +29,17 @@ export class ProjectServiceDiagramModel extends DiagramModel {
     return super.getNodes() as ServiceNodeModel[];
   }
 
+  getLinks(): ServiceLinkModel[] {
+    return super.getLinks() as ServiceLinkModel[];
+  }
+
+  serializeToSchema(): ProjectSchema {
+    return {
+      services: this.getNodes().map(node => node.serializeToSchema()),
+      links: this.getLinks().map(link => link.serializeToSchema())
+    };
+  }
+
   private createNodes(schema: ProjectSchema) {
     schema.services.forEach(service =>
       this.addNode(new ServiceNodeModel(service))
@@ -42,7 +54,7 @@ export class ProjectServiceDiagramModel extends DiagramModel {
       let toPort = allInPorts.find(port => port.getID() === linkSchema.to);
 
       if (fromPort && toPort) {
-        this.addNewLink(linkSchema.id, fromPort, toPort);
+        this.addNewLink(linkSchema.id, fromPort, toPort, linkSchema.points);
       } else {
         console.error(
           "Error in schema. Can't create link with id: " + linkSchema.id
@@ -52,10 +64,7 @@ export class ProjectServiceDiagramModel extends DiagramModel {
     }
   }
 
-  private addNewLink(id: string, fromPort: PortModel, toPort: PortModel) {
-    const linkModel = new ServiceLinkModel(id, fromPort, toPort);
-    fromPort.reportPosition();
-    toPort.reportPosition();
-    this.addLink(linkModel);
+  private addNewLink(id: string, fromPort: PortModel, toPort: PortModel, points: PointSchema[]) {
+    this.addLink(new ServiceLinkModel(id, fromPort, toPort, points));
   }
 }

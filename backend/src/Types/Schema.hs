@@ -1,59 +1,87 @@
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE DeriveGeneric          #-}
+{-# LANGUAGE FlexibleContexts       #-}
+{-# LANGUAGE FlexibleInstances      #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE StrictData             #-}
+{-# LANGUAGE TemplateHaskell        #-}
+{-# LANGUAGE TypeFamilies           #-}
+
 module Types.Schema where
 
+import           Control.Lens
+import           Control.Monad.Trans
+import           Data.Aeson
+import           Data.Aeson.TH               (deriveJSON)
 import           Data.Swagger.Internal.Utils
 import           Data.Text
-import           GHC.Generics
-import           Data.Aeson
-import           Data.UUID.V4                             ( nextRandom )
 import           Data.UUID
-import           Control.Monad.Trans
+import           Data.UUID.V4                (nextRandom)
+import           GHC.Generics
 
+data Point =
+  Point
+    { _pointX :: Float
+    , _pointY :: Float
+    }
+  deriving (Show, Generic)
 
-data ProjectSchema = ProjectSchema {
-    _projectSchemaId :: UUID
-  , _projectSchemaServices :: [Service]
-  , _projectSchemaLinks :: [Link]
-  } deriving (Show, Generic)
+data ProjectSchema =
+  ProjectSchema
+    { _projectSchemaServices :: [ServiceSchema]
+    , _projectSchemaLinks    :: [LinkSchema]
+    }
+  deriving (Show, Generic)
 
-data Service = Service {
-    _serviceId :: UUID
-  , _serviceName :: Text
-  , _serviceDescription :: Maybe Text
-  , _serviceInPorts :: [Port]
-  , _serviceOutPorts :: [Port]
-  } deriving (Show, Generic)
+data ServiceSchema =
+  ServiceSchema
+    { _serviceSchemaId          :: UUID
+    , _serviceSchemaName        :: Text
+    , _serviceSchemaPosition    :: Point
+    , _serviceSchemaDescription :: Maybe Text
+    , _serviceSchemaPorts       :: [PortSchema]
+    }
+  deriving (Show, Generic)
 
-data Port = Port {
-    _portId :: UUID
-  , _portName :: Text
-  } deriving (Show, Generic)
+data PortSchema =
+  PortSchema
+    { _portSchemaId    :: UUID
+    , _portSchemaName  :: Text
+    , _portSchemaInput :: Bool
+    }
+  deriving (Show, Generic)
 
-data Link = Link {
-    _linkId :: UUID
-  , _linkFrom :: UUID
-  , _linkTo :: UUID
-  } deriving (Show, Generic)
+data LinkSchema =
+  LinkSchema
+    { _linkSchemaId     :: UUID
+    , _linkSchemaFrom   :: UUID
+    , _linkSchemaTo     :: UUID
+    , _linkSchemaPoints :: [Point]
+    }
+  deriving (Show, Generic)
 
--- To json instances
-instance ToJSON ProjectSchema where
-  toJSON = genericToJSON (jsonPrefix "ProjectSchema")
+-- JSON instance 
+deriveJSON (jsonPrefix "Point") 'Point
 
-instance ToJSON Service where
-  toJSON = genericToJSON (jsonPrefix "Service")
+deriveJSON (jsonPrefix "ProjectSchema") 'ProjectSchema
 
-instance ToJSON Port where
-  toJSON = genericToJSON (jsonPrefix "Port")
+deriveJSON (jsonPrefix "ServiceSchema") 'ServiceSchema
 
-instance ToJSON Link where
-  toJSON = genericToJSON (jsonPrefix "Link")
+deriveJSON (jsonPrefix "PortSchema") 'PortSchema
 
-emptySchema :: (MonadIO m) => m ProjectSchema
-emptySchema = do
-  uuid <- liftIO nextRandom
-  return $ ProjectSchema uuid [] []
+deriveJSON (jsonPrefix "LinkSchema") 'LinkSchema
 
+-- Lenses
+makeFields ''ProjectSchema
+
+makeFields ''ServiceSchema
+
+makeFields ''PortSchema
+
+makeFields ''LinkSchema
+
+emptySchema :: ProjectSchema
+emptySchema = ProjectSchema [] []
 
 class HasSchema m where
   getSchema :: m ProjectSchema

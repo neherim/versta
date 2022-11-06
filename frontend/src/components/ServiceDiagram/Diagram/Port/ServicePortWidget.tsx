@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { DiagramEngine, PortWidget } from '@projectstorm/react-diagrams-core';
-import { DefaultPortModel } from './DefaultPortModel';
+import { ServicePortModel } from './ServicePortModel';
 import styled from '@emotion/styled';
 
-export interface DefaultPortLabelProps {
-	port: DefaultPortModel;
+export interface ServicePortProps {
+	port: ServicePortModel;
 	engine: DiagramEngine;
 }
 
-namespace S {
 	export const PortLabel = styled.div`
 		display: flex;
 		margin-top: 1px;
@@ -26,25 +25,24 @@ namespace S {
 		background: rgba(white, 0.1);
 
 		&:hover {
-			background: rgb(192, 255, 0);
+			background: rgb(40,194,255);
 		}
 	`;
-}
 
-export class DefaultPortLabel extends React.Component<DefaultPortLabelProps> {
+export class ServicePortWidget extends React.Component<ServicePortProps> {
 	render() {
 		const port = (
 			<PortWidget engine={this.props.engine} port={this.props.port}>
-				<S.Port />
+				<Port />
 			</PortWidget>
 		);
-		const label = <S.Label>{this.props.port.getOptions().label}</S.Label>;
+		const label = <Label>{this.props.port.getOptions().label}</Label>;
 
 		return (
-			<S.PortLabel>
+			<PortLabel>
 				{this.props.port.getOptions().in ? port : label}
 				{this.props.port.getOptions().in ? label : port}
-			</S.PortLabel>
+			</PortLabel>
 		);
 	}
 }

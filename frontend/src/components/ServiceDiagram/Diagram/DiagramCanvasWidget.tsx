@@ -1,15 +1,15 @@
 import React from "react";
-import {ServiceDiagram} from "../Model/ServiceDiagram";
+import {ProjectDiagram} from "./ProjectDiagram";
 import {css} from "@emotion/core";
 import styled from "@emotion/styled";
 import {CanvasWidget} from "@projectstorm/react-canvas-core";
 
 interface DiagramCanvasProps {
-  diagram: ServiceDiagram;
+  diagram: ProjectDiagram;
   showGrid: boolean;
 }
 
-export const DiagramCanvas: React.FC<DiagramCanvasProps> = ({
+export const DiagramCanvasWidget: React.FC<DiagramCanvasProps> = ({
     diagram,
     showGrid
   }) => {

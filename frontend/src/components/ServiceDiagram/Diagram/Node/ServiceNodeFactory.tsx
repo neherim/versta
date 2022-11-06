@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { DefaultNodeModel } from './DefaultNodeModel';
-import { DefaultNodeWidget } from './DefaultNodeWidget';
-import { AbstractReactFactory } from '@projectstorm/react-canvas-core';
-import { DiagramEngine } from '@projectstorm/react-diagrams-core';
+import {AbstractReactFactory} from '@projectstorm/react-canvas-core';
+import {DiagramEngine} from '@projectstorm/react-diagrams-core';
+import {ServiceNodeWidget} from "./ServiceNodeWidget";
+import {ServiceNodeModel} from "./ServiceNodeModel";
+import {GenerateWidgetEvent} from "@projectstorm/react-canvas-core/dist/@types/src/core/AbstractReactFactory";
+import {GenerateModelEvent} from "@projectstorm/react-canvas-core/dist/@types/src/core/AbstractModelFactory";
 
-export class DefaultNodeFactory extends AbstractReactFactory<DefaultNodeModel, DiagramEngine> {
-	constructor() {
-		super('default');
-	}
+export class ServiceNodeFactory extends AbstractReactFactory<ServiceNodeModel, DiagramEngine> {
+  constructor() {
+    super('service');
+  }
 
-	generateReactWidget(event): JSX.Element {
-		return <DefaultNodeWidget engine={this.engine} node={event.model} />;
-	}
+  generateReactWidget(event: GenerateWidgetEvent<ServiceNodeModel>): JSX.Element {
+    return <ServiceNodeWidget engine={this.engine} node={event.model}/>;
+  }
 
-	generateModel(event): DefaultNodeModel {
-		return new DefaultNodeModel();
-	}
+  generateModel(event: GenerateModelEvent): ServiceNodeModel {
+    return new ServiceNodeModel();
+  }
 }

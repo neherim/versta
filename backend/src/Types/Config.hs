@@ -11,25 +11,36 @@ import           Data.Yaml
 import           Data.Aeson.Types
 import           Data.HashMap.Strict
 
+data SchemaConfig = SchemaConfig {
+    configFile :: FilePath
+  } deriving (Show, Generic)
+
 data ServiceEndpointsConfig = ServiceEndpointsConfig {
-  configSwagger :: Text
+    configSwagger :: Text
   } deriving (Show, Generic)
 
 data AppConfig = AppConfig {
-  configPort :: Int,
-  configServices :: HashMap Text ServiceEndpointsConfig
-} deriving (Show, Generic)
+    configPort :: Int
+  , configServices :: HashMap Text ServiceEndpointsConfig
+  , configSchema :: SchemaConfig
+  } deriving (Show, Generic)
 
+
+instance FromJSON SchemaConfig where
+  parseJSON = genericParseJSON configParseOptions
 
 instance FromJSON ServiceEndpointsConfig where
-  parseJSON = genericParseJSON
-    $ defaultOptions { fieldLabelModifier = capitalized . dropWhile isLower }
+  parseJSON = genericParseJSON configParseOptions
 
 instance FromJSON AppConfig where
-  parseJSON = genericParseJSON
-    $ defaultOptions { fieldLabelModifier = capitalized . dropWhile isLower }
+  parseJSON = genericParseJSON configParseOptions
 
 
-capitalized :: String -> String
-capitalized []       = []
-capitalized (x : xs) = toLower x : xs
+configParseOptions :: Options
+configParseOptions = defaultOptions
+  { fieldLabelModifier = capitalized . drop (length "config")
+  }
+ where
+  capitalized :: String -> String
+  capitalized []       = []
+  capitalized (x : xs) = toLower x : xs

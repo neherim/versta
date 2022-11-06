@@ -1,15 +1,19 @@
 import {DiagramEngine} from "@projectstorm/react-diagrams-core";
 import createEngine, {RightAngleLinkFactory} from "@projectstorm/react-diagrams";
-import {ProjectServiceDiagramModel} from "./ProjectSchemaDiagramModel";
+import {ProjectDiagramModel} from "./ProjectDiagramModel";
 import {ProjectSchema} from "./schema";
+import {ServiceNodeFactory} from "./Node/ServiceNodeFactory";
+import {ServicePortFactory} from "./Port/ServicePortFactory";
 
-export class ProjectServiceDiagram {
+export class ProjectDiagram {
   engine: DiagramEngine;
 
   constructor() {
     this.engine = createEngine();
     this.engine.getLinkFactories().registerFactory(new RightAngleLinkFactory());
-    this.engine.setModel(new ProjectServiceDiagramModel());
+    this.engine.getNodeFactories().registerFactory(new ServiceNodeFactory());
+    this.engine.getPortFactories().registerFactory(new ServicePortFactory());
+    this.engine.setModel(new ProjectDiagramModel());
   }
 
   public zoomIn() {
@@ -26,17 +30,15 @@ export class ProjectServiceDiagram {
     this.engine.zoomToFit();
   }
 
-  public serialize() {
-    this.getModel().serialize();
+  public serializeModel(): any {
+    return this.getModel().serialize();
   }
 
   public startEdit() {
-    console.log("Enter edit mode");
     this.getModel().unlock();
   }
 
   public saveChanges() {
-    console.log("Leave edit mode");
     this.getModel().lock();
   }
 
@@ -44,12 +46,18 @@ export class ProjectServiceDiagram {
     return this.getModel().isLocked();
   }
 
-  public updateSchema(newSchema: any) {
-    let schema = new ProjectSchema(newSchema);
-    let model = new ProjectServiceDiagramModel(schema);
-    this.engine.setModel(model);
+  public deserialize(newSchema: ProjectSchema) {
+    let newModel = new ProjectDiagramModel(newSchema);
+    this.engine.setModel(newModel);
     this.engine.repaintCanvas();
   }
+
+  public serializeToSchema(): ProjectSchema {
+    return this.getModel().serializeToSchema();
+  }
+
+
+
 
 
   // axios.get("/api/v1/demo")
@@ -61,7 +69,7 @@ export class ProjectServiceDiagram {
   /* const newModel = new ServiceDiagramModel();
    * newModel.deserializeModel(serializeExample, engine);
    * engine.setModel(newModel); */
-  private getModel(): ProjectServiceDiagramModel {
-    return this.engine.getModel() as ProjectServiceDiagramModel;
+  private getModel(): ProjectDiagramModel {
+    return this.engine.getModel() as ProjectDiagramModel;
   }
 }

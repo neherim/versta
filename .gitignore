@@ -12,12 +12,17 @@
 # Stack
 .stack-work/
 stack.yaml.lock
+out
 
 ### IDE/support
 TAGS
+.idea
+*.iml
+.vscode
 
 # Frontend
 frontend/node_modules
 
 # other
+build
 .DS_Store
