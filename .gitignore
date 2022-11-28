@@ -26,3 +26,8 @@ frontend/node_modules
 # other
 build
 .DS_Store
+*.iml
+.idea
+.vscode
+build
+backend/out
